@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">TourismMap</string>
+    <string name="button_history">История маршрутов</string>
+    <string name="main_text">Главное меню</string>
+    <string name="button_back">Назад</string>
+    <string name="button_list">Список маршрутов</string>
+    <string name="button_help">Помощник в туризме</string>
+    <string name="list_text">Список маршрутов</string>
+
+
+</resources>
