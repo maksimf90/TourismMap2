@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "20010884645",
+    "project_id": "tourismmap-24b45",
+    "storage_bucket": "tourismmap-24b45.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:20010884645:android:47ad1c98811a85a65fe9cc",
+        "android_client_info": {
+          "package_name": "com.example.tourismmap2"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAG_FdzonpRWbrO-ajwALp7lfRhgcsWrps"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
