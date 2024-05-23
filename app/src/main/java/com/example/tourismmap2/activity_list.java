@@ -1,36 +1,99 @@
 package com.example.tourismmap2;
 
+import static com.google.android.material.internal.ViewUtils.getChildren;
+
 import android.os.Bundle;
 
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.SearchView;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
+
 import java.util.ArrayList;
+import java.util.List;
 
 public class activity_list extends AppCompatActivity {
-ArrayList<routeitem>routelist;
-RouteAdapters adapters;
-RecyclerView rlayout;
+//ArrayList<routeData>rlist;
+RouteAdapters adapter;
+RecyclerView listcard;
+DatabaseReference databaseReference;
+ValueEventListener eventListener;
+List<routeData> rlist;
+SearchView searchView;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
+       super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_list);
-        rlayout = findViewById(R.id.listcard);
+
+        listcard = findViewById(R.id.listcard);
+        searchView = findViewById(R.id.searchroute);
+        searchView.clearFocus();
+
+        GridLayoutManager gridLayoutManager = new GridLayoutManager(activity_list.this, 2);
+        listcard.setLayoutManager(gridLayoutManager);
+
+       AlertDialog.Builder builder = new AlertDialog.Builder(activity_list.this);
+        builder.setCancelable(false);
+        AlertDialog dialog = builder.create();
+        dialog.show();
 
 
-        routelist = new ArrayList<>();
-        routelist.add(new routeitem(R.drawable.routetest1, 1, "Продолжительность: 2 дня", "Рейтинг: 20 оценок", "Длина: 40680 м", "Местоположение: Россия, г.Воронеж", "Сложность: Начинающий", "Описание:\n"+ "Когда времени нет, а очень хочется убежать из города такого рода маршрут поможет разгрузиться и забыть о городской суете и наполнить легкие и голову природной свежестью! Необходимо запастись едой, хотя бы на 1 день, во второй проходя Чертовицы можно дойти до магазина, но лучше взять все с собой сразу. Тропа частично пересекается с большой Воронежской тропой, а может где-то и повторяет ее.",
-                "Нитка маршрута:\n" + "Спортивный парк \"Олимпик\"-Полуостров за \"Градом\"-старые лагеря-Рамонь\n" + "Остановки для отдыха\n" + "место под палатку\n" + "План прохождения маршрута\n" + "От \"Олимпика по тропам\" через родник доходим до полуострова \"Град\" где встаем на ночевку. В теплое время года отличнейшее место для купания. Далее идем до старых дач, после выходим к автовокзалу \"Рамони\"."));
-        routelist.add(new routeitem(R.drawable.route2, 2, "Продолжительность: 7 дней", "Рейтинг: 10 оценок", "Длина: 765070 м", "Местоположение: Россия, Алтай", "Сложность: Начинающий", "Описание:\n"+ "Семиднеыное путешествие по самым интересным местам Горного Алтая на Автомобиле с ночевками в гостиницах, короткими прогулками и экскурсиями. Для участия не требуется специальной подготовки, специальное снаряжение тоже не обязательно.",
-                "Нитка маршрута:\n" + "Горно-Алтайск - Усть-Кокса - Мульта - Акташ - Курай - Марс - Акташ - Улаган - Учар - Горно-Алтайск"));
-        routelist.add(new routeitem(R.drawable.route3, 3, "Продолжительность: 5 дней", "Рейтинг: 30 оценок", "Длина: 85778 м", "Местоположение: Россия", "Сложность: Начинающий" , "Описание:\n"+ "Этот вариант пути позволяет пройти даже начинающим туристам в Золотую долину самым простым способом. С треком справятся как взрослые так и дети от 12 лет. Отличный вариант провести отпуск или каникулы и посмотреть невероятные красоты нашей Родины. Проживание частично возможно в горных приютах, можно попариться в таежной бане и искупаться с настоящих горных реках и озерах.",
-                "Нитка маршрута:\n"+ "Лужба - Тальковый карьер - Шорский перевал - Малый Казыр - Высокогорный - Караташский - НГПИ - Золотая долина - Харатас - НГПИ - Караташский - Высокогорный - Куприяновская поляна - Шорский перевал - Лужба."));
+        rlist = new ArrayList<>();
+
+         adapter = new RouteAdapters(activity_list.this, rlist);
+        listcard.setAdapter(adapter);
+
+        databaseReference = FirebaseDatabase.getInstance("https://tourismmap-24b45-default-rtdb.europe-west1.firebasedatabase.app").getReference("TourismMap Data");
+        dialog.show();
+
+        eventListener = databaseReference.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                rlist.clear();
+                for (DataSnapshot itemSnapshot: snapshot.getChildren()){
+                    routeData routedata = itemSnapshot.getValue(routeData.class);
+                    rlist.add(routedata);
+                }
+                adapter.notifyDataSetChanged();
+                dialog.dismiss();
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+              dialog.dismiss();
+            }
+        });
 
 
-        adapters = new RouteAdapters(routelist, this);
-        rlayout.setLayoutManager(new GridLayoutManager(this, 2));
-        rlayout.setAdapter(adapters);
+        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+            @Override
+            public boolean onQueryTextSubmit(String query) {
+                return false;
+            }
 
+            @Override
+            public boolean onQueryTextChange(String newText) {
+                searchList(newText);
+                return true;
+            }
+        });
+    }
+    public void searchList(String text){
+        ArrayList<routeData> searchList = new ArrayList<>();
+        for (routeData rData: rlist){
+            if (rData.getLocation().toLowerCase().contains(text.toLowerCase())) {
+                searchList.add(rData);
+            }
+        }
+        adapter.searchRouteList(searchList);
     }
 }
+

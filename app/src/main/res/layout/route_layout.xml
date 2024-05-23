@@ -15,10 +15,12 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:cardCornerRadius="10dp"
+        android:id="@+id/cardLayout"
+
         >
 
         <LinearLayout
-            android:id="@+id/cardLayout"
+            android:id="@+id/cardLl"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
