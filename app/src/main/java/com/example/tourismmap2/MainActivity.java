@@ -31,4 +31,9 @@ public class MainActivity extends AppCompatActivity {
         Intent intent = new Intent(this, activity_help.class);
         startActivity(intent);
     }
+
+    public void addClick (View v){
+        Intent intent = new Intent(this, activity_add.class);
+        startActivity(intent);
+    }
 }

@@ -40,6 +40,7 @@ public class RouteAdapters extends RecyclerView.Adapter<RouteAdapters.viewHolder
         holder.duration.setText(items.getDuration());
         holder.length.setText(items.getLength());
         holder.lvl.setText(items.getLvl());
+       // Glide.with(context).load(routeData.get(position).getDataImage()).into(holder.rimage);
 
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
