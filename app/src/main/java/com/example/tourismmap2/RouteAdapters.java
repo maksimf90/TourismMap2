@@ -39,7 +39,7 @@ public class RouteAdapters extends RecyclerView.Adapter<RouteAdapters.viewHolder
 
             image = itemView.findViewById(R.id.routeimage);
             location = itemView.findViewById(R.id.routelocation);
-            rank = itemView.findViewById(R.id.routerank);
+           // rank = itemView.findViewById(R.id.routerank);
             length = itemView.findViewById(R.id.routelength);
             duration = itemView.findViewById(R.id.routeduration);
             lvl = itemView.findViewById(R.id.routelvl);
@@ -70,7 +70,8 @@ public class RouteAdapters extends RecyclerView.Adapter<RouteAdapters.viewHolder
         holder.lvl.setText(rlist.get(position).getLvl());
         holder.duration.setText(rlist.get(position).getDuration());
         holder.length.setText(rlist.get(position).getLength());
-        holder.rank.setText(rlist.get(position).getRank());
+
+       // holder.rank.setText(rlist.get(position).getRank());
 
 
 
@@ -84,7 +85,7 @@ public class RouteAdapters extends RecyclerView.Adapter<RouteAdapters.viewHolder
                 intent.putExtra("lvl", rlist.get(holder.getAdapterPosition()).getLvl());
                 intent.putExtra("duration", rlist.get(holder.getAdapterPosition()).getDuration());
                 intent.putExtra("length", rlist.get(holder.getAdapterPosition()).getLength());
-                intent.putExtra("rank", rlist.get(holder.getAdapterPosition()).getRank());
+               // intent.putExtra("rank", rlist.get(holder.getAdapterPosition()).getRank());
                 intent.putExtra("description", rlist.get(holder.getAdapterPosition()).getDescription());
                 intent.putExtra("thread", rlist.get(holder.getAdapterPosition()).getThread());
 
@@ -98,8 +99,8 @@ public class RouteAdapters extends RecyclerView.Adapter<RouteAdapters.viewHolder
         return rlist.size();
     }
 
-    public void searchRouteList(ArrayList<routeData> seachList){
-        rlist = seachList;
+    public void searchRouteList(ArrayList<routeData> searchList){
+        rlist = searchList;
         notifyDataSetChanged();
     }
 

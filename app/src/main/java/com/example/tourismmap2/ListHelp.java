@@ -10,19 +10,27 @@ import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
+import com.bumptech.glide.Glide;
+
 public class ListHelp extends AppCompatActivity {
 
+    //ImageView helpimage;
+    TextView textnameHelp, textdescriptionHelp;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        EdgeToEdge.enable(this);
         setContentView(R.layout.activity_list_help);
 
-        TextView textName = findViewById(R.id.textName);
-        TextView textDescHelp = findViewById(R.id.textDescHelp);
+        textnameHelp = findViewById(R.id.textnameHelp);
+       textdescriptionHelp = findViewById(R.id.textdescriptionHelp);
 
-        textName.setText(getIntent().getStringExtra("nameHelp"));
-        textDescHelp.setText(getIntent().getStringExtra("descriptionHelp"));
+        Bundle bundle = getIntent().getExtras();
+        if (bundle != null) {
 
+            textnameHelp.setText(bundle.getString("nameHelp"));
+            textdescriptionHelp.setText(bundle.getString("descriptionHelp"));
+
+           //Glide.with(this).load(bundle.getString("image")).into(helpimage);
+        }
     }
 }

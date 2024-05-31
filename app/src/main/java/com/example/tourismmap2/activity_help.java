@@ -2,23 +2,119 @@ package com.example.tourismmap2;
 
 import android.os.Bundle;
 
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.SearchView;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
+
 import java.util.ArrayList;
+import java.util.List;
 
 public class activity_help extends AppCompatActivity {
 
-    ArrayList<helpitem> helplist;
+    List<helpData> hlist;
     HelpAdapters adapters;
-    RecyclerView hlayout;
+    RecyclerView listhelp;
+    DatabaseReference databaseReference;
+    ValueEventListener eventListener;
+    SearchView searchView;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_help);
-        hlayout = findViewById(R.id.listhelp);
 
+        listhelp = findViewById(R.id.listhelp);
+        searchView = findViewById(R.id.searchhelp);
+        searchView.clearFocus();
+
+        GridLayoutManager gridLayoutManager = new GridLayoutManager(activity_help.this, 1);
+        listhelp.setLayoutManager(gridLayoutManager);
+
+        AlertDialog.Builder builder = new AlertDialog.Builder(activity_help.this);
+        builder.setCancelable(false);
+        AlertDialog dialog = builder.create();
+        dialog.show();
+
+        hlist = new ArrayList<>();
+
+        adapters = new HelpAdapters(activity_help.this, hlist);
+        listhelp.setAdapter(adapters);
+
+        databaseReference = FirebaseDatabase.getInstance("https://tourismmap-24b45-default-rtdb.europe-west1.firebasedatabase.app").getReference("TourismMap DataHelp");
+        dialog.show();
+
+        eventListener = databaseReference.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                hlist.clear();
+                for (DataSnapshot itemSnapshot: snapshot.getChildren()){
+                    helpData helpdata = itemSnapshot.getValue(helpData.class);
+                    hlist.add(helpdata);
+                }
+                adapters.notifyDataSetChanged();
+                dialog.dismiss();
+            }
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+                dialog.dismiss();
+            }
+        });
+
+        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+            @Override
+            public boolean onQueryTextSubmit(String query) {
+                return false;
+            }
+
+            @Override
+            public boolean onQueryTextChange(String newText) {
+                searchList(newText);
+                return true;
+            }
+        });
+    }
+    public void searchList(String text){
+        ArrayList<helpData> helpList = new ArrayList<>();
+        for (helpData hData: hlist){
+            if (hData.getNameHelp().toLowerCase().contains(text.toLowerCase())) {
+                helpList.add(hData);
+            }
+        }
+        adapters.searchHelpList(helpList);
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+       /* hlayout = findViewById(R.id.listhelp);
 
         helplist = new ArrayList<>();
         helplist.add(new helpitem(R.drawable.iconbelongings, 1, "Что брать с собой?", "— Палатка, спальный мешок и коврик\n" +
@@ -60,7 +156,5 @@ public class activity_help extends AppCompatActivity {
 
         adapters = new HelpAdapters(helplist, this);
         hlayout.setLayoutManager(new GridLayoutManager(this, 1));
-        hlayout.setAdapter(adapters);
+        hlayout.setAdapter(adapters);*/
 
-    }
-}

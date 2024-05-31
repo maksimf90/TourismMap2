@@ -26,7 +26,7 @@ public class ListRoute1 extends AppCompatActivity {
          textLvl = findViewById(R.id.textLvl);
          textLength = findViewById(R.id.textLength);
          textDuration = findViewById(R.id.textDuration);
-         textRank = findViewById(R.id.textRank);
+        // textRank = findViewById(R.id.textRank);
          textDescription = findViewById(R.id.textDescription);
          textThread = findViewById(R.id.textThread);
 
@@ -46,7 +46,7 @@ public class ListRoute1 extends AppCompatActivity {
             textLvl.setText(bundle.getString("lvl"));
             textLength.setText(bundle.getString("length"));
             textDuration.setText(bundle.getString("duration"));
-            textRank.setText(bundle.getString("rank"));
+           // textRank.setText(bundle.getString("rank"));
             textDescription.setText(bundle.getString("description"));
             textThread.setText(bundle.getString("thread"));
 

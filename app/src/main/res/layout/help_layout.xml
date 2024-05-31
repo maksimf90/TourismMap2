@@ -13,10 +13,10 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:cardCornerRadius="10dp"
+        android:id="@+id/cardLayoutHelp"
              >
 
         <LinearLayout
-            android:id="@+id/cardLayout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
@@ -40,7 +40,7 @@
                 android:orientation="vertical"
                 >
                 <TextView
-                    android:id="@+id/helpname"
+                    android:id="@+id/nameHelp"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginVertical="0dp"
