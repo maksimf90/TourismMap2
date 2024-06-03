@@ -6,7 +6,6 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".MainActivity"
-    android:background="@drawable/bgmain"
     >
 
     <TextView
@@ -45,7 +44,6 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:background="@drawable/bghistory"
                 android:onClick="listClick"
                 android:orientation="vertical"
                 android:padding="3dp">
@@ -95,7 +93,6 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:background="@drawable/bghistory"
                 android:gravity="center"
                 android:onClick="historyClick"
                 android:orientation="horizontal"
@@ -142,7 +139,6 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:background="@drawable/bghistory"
                 android:gravity="center"
                 android:onClick="helpСlick"
                 android:orientation="horizontal"
@@ -153,7 +149,8 @@
                     android:layout_width="30dp"
                     android:layout_height="18dp"
                     android:layout_weight="1"
-                    app:srcCompat="@drawable/iconhistory" />
+                    app:srcCompat="@drawable/iconhistory"
+                    />
 
                 <TextView
                     android:id="@+id/textView12"
