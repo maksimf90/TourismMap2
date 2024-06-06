@@ -7,165 +7,165 @@
     android:layout_height="match_parent"
     tools:context=".ListRoute1"
     android:orientation="vertical"
-    android:background="@drawable/bluewhite"
-    >
+    android:scrollbars="vertical"
+    android:background="@drawable/bluewhite">
 
-   <ScrollView
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content">
-
-<LinearLayout
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:layout_marginTop="35dp">
-    <androidx.cardview.widget.CardView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:cardElevation="5dp"
-        android:layout_margin="5dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:cardCornerRadius="10dp">
     <LinearLayout
-        android:id="@+id/linearLayout3"
-        android:layout_width="400dp"
-        android:layout_height="278dp"
-        android:layout_marginStart="1dp"
-        android:layout_marginTop="1dp"
-        android:orientation="horizontal"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
-
-        <ImageView
-            android:id="@+id/imageRoute1"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:scaleType="centerCrop"
-            app:srcCompat="@drawable/routetest1" />
-    </LinearLayout>
-    </androidx.cardview.widget.CardView>
-
-    <androidx.cardview.widget.CardView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:cardElevation="5dp"
-        android:layout_margin="5dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:cardCornerRadius="10dp">
-    <LinearLayout
-        android:id="@+id/linearLayout7"
-        android:layout_width="400dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="1dp"
-        android:layout_marginTop="1dp"
-        android:orientation="vertical"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayout3">
-
-        <TextView
-            android:id="@+id/textLocation"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Локация"
-            android:layout_marginBottom="5dp"
-            android:textSize="19sp" />
-
-        <TextView
-            android:id="@+id/textLvl"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Сложность"
-            android:layout_marginBottom="5dp"
-            android:textSize="19sp" />
-
-        <TextView
-            android:id="@+id/textDuration"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Длительность"
-            android:layout_marginBottom="5dp"
-            android:textSize="19sp" />
-
-        <TextView
-            android:id="@+id/textLength"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Длина"
-            android:layout_marginBottom="5dp"
-            android:textSize="19sp" />
-
-    </LinearLayout>
-    </androidx.cardview.widget.CardView>
-
-    <androidx.cardview.widget.CardView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:cardElevation="5dp"
-        android:layout_margin="5dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:cardCornerRadius="10dp">
-    <LinearLayout
-        android:id="@+id/linearLayout8"
-        android:layout_width="400dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="1dp"
-        android:layout_marginTop="1dp"
-        android:orientation="horizontal"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayout7">
-
-        <TextView
-            android:id="@+id/textDescription"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Описание"
-            android:layout_marginBottom="5dp"
-            android:textSize="19sp" />
-    </LinearLayout>
-    </androidx.cardview.widget.CardView>
-
-    <androidx.cardview.widget.CardView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:cardElevation="5dp"
-        android:layout_margin="5dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:cardCornerRadius="10dp">
-    <LinearLayout
-        android:layout_width="400dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="1dp"
-        android:layout_marginTop="1dp"
-        android:orientation="horizontal"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayout8">
-
-        <TextView
-            android:id="@+id/textThread"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="Нитка маршрута"
-            android:layout_marginBottom="5dp"
-            android:textSize="19sp" />
-    </LinearLayout>
-</androidx.cardview.widget.CardView>
-</LinearLayout>
-</ScrollView>
-
-    <Button
-        android:id="@+id/buttonAddHist"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Отметить как пройденный" />
-</LinearLayout>
+        android:orientation="vertical"
+        android:layout_marginTop="35dp"
+        android:scrollbars="vertical">
 
+        <androidx.cardview.widget.CardView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:cardElevation="5dp"
+            android:layout_margin="5dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:cardCornerRadius="10dp">
+
+            <LinearLayout
+                android:id="@+id/linearLayout3"
+                android:layout_width="400dp"
+                android:layout_height="278dp"
+                android:layout_marginStart="1dp"
+                android:layout_marginTop="1dp"
+                android:orientation="horizontal"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <ImageView
+                    android:id="@+id/imageRoute1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:scaleType="centerCrop"
+                    app:srcCompat="@drawable/routetest1" />
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:cardElevation="5dp"
+            android:layout_margin="5dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:cardCornerRadius="10dp">
+
+            <LinearLayout
+                android:id="@+id/linearLayout7"
+                android:layout_width="400dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="1dp"
+                android:layout_marginTop="1dp"
+                android:orientation="vertical"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/linearLayout3">
+
+                <TextView
+                    android:id="@+id/textLocation"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Локация"
+                    android:layout_marginBottom="5dp"
+                    android:textSize="19sp" />
+
+                <TextView
+                    android:id="@+id/textLvl"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Сложность"
+                    android:layout_marginBottom="5dp"
+                    android:textSize="19sp" />
+
+                <TextView
+                    android:id="@+id/textDuration"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Длительность"
+                    android:layout_marginBottom="5dp"
+                    android:textSize="19sp" />
+
+                <TextView
+                    android:id="@+id/textLength"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Длина"
+                    android:layout_marginBottom="5dp"
+                    android:textSize="19sp" />
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:cardElevation="5dp"
+            android:layout_margin="5dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:cardCornerRadius="10dp">
+
+            <LinearLayout
+                android:id="@+id/linearLayout8"
+                android:layout_width="400dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="1dp"
+                android:layout_marginTop="1dp"
+                android:orientation="horizontal"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/linearLayout7">
+
+                <TextView
+                    android:id="@+id/textDescription"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Описание"
+                    android:layout_marginBottom="5dp"
+                    android:textSize="19sp" />
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:cardElevation="5dp"
+            android:layout_margin="5dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:cardCornerRadius="10dp">
+
+            <LinearLayout
+                android:layout_width="400dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="1dp"
+                android:layout_marginTop="1dp"
+                android:orientation="horizontal"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/linearLayout8">
+
+                <TextView
+                    android:id="@+id/textThread"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Нитка маршрута"
+                    android:layout_marginBottom="5dp"
+                    android:textSize="19sp" />
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+    </LinearLayout>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerViewRoute"
+        android:layout_width="match_parent"
+        android:layout_height="200dp">
+    </androidx.recyclerview.widget.RecyclerView>
+
+</LinearLayout>

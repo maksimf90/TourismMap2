@@ -30,7 +30,7 @@ public class RouteAdapters extends RecyclerView.Adapter<RouteAdapters.viewHolder
 
     public class viewHolder extends RecyclerView.ViewHolder {
         ImageView image;
-        TextView  duration, rank, length, location, lvl;
+        TextView  location, lvl, duration, length;
         CardView cardLayout;
 
         public viewHolder(@NonNull View itemView){
