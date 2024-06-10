@@ -5,6 +5,7 @@ import android.app.AlertDialog;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -29,6 +30,8 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
@@ -137,7 +140,6 @@ public class activity_add extends AppCompatActivity {
     }
 
     public void addData(){
-
         String location = addLocation.getText().toString();
         String lvl = addLvl.getText().toString();
         String duration = addDuration.getText().toString();
@@ -145,24 +147,36 @@ public class activity_add extends AppCompatActivity {
         String description = addDescription.getText().toString();
         String thread = addThread.getText().toString();
 
+        // Получение идентификатора текущего пользователя
+        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+        if (user != null) {
+            String userUID = user.getUid();
 
-        routeData routedata = new routeData(imageURL, location, lvl, duration, length, description, thread);
+            // Создание объекта маршрута с добавлением userUID
+            routeData routeData = new routeData(imageURL, location, lvl, duration, length, description, thread);
 
-        FirebaseDatabase.getInstance("https://tourismmap-24b45-default-rtdb.europe-west1.firebasedatabase.app").getReference("TourismMap Data").child(location).setValue(routedata).addOnCompleteListener(new OnCompleteListener<Void>(){
-            @Override
-            public void onComplete(@NonNull Task<Void> task){
-                if (task.isSuccessful()){
-                    Toast.makeText(activity_add.this, "saved", Toast.LENGTH_SHORT).show();
-                    finish();
-                }
-            }
-        }).addOnFailureListener(new OnFailureListener() {
-            @Override
-            public void onFailure(@NonNull Exception e) {
-                Toast.makeText(activity_add.this, e.getMessage().toString(), Toast.LENGTH_SHORT).show();
-            }
-        });
-
+            FirebaseDatabase.getInstance("https://tourismmap-24b45-default-rtdb.europe-west1.firebasedatabase.app")
+                    .getReference("TourismMap Data").child(location)
+                    .setValue(routeData)
+                    .addOnCompleteListener(new OnCompleteListener<Void>(){
+                        @Override
+                        public void onComplete(@NonNull Task<Void> task){
+                            if (task.isSuccessful()){
+                                Toast.makeText(activity_add.this, "Маршрут сохранен", Toast.LENGTH_SHORT).show();
+                                finish();
+                            }
+                        }
+                    })
+                    .addOnFailureListener(new OnFailureListener() {
+                        @Override
+                        public void onFailure(@NonNull Exception e) {
+                            Toast.makeText(activity_add.this, e.getMessage().toString(), Toast.LENGTH_SHORT).show();
+                        }
+                    });
+        } else {
+            Log.e("activity_add", "Пользователь не аутентифицирован");
+        }
     }
 }
+
 

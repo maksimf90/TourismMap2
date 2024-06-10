@@ -47,7 +47,13 @@
             android:layout_marginTop="5dp"
             android:padding="8dp"
             android:hint="Password"
+            android:inputType="textPassword"
             android:textColor="@color/black"/>
+        <CheckBox
+            android:id="@+id/checkBoxSign"
+            android:layout_width="match_parent"
+            android:layout_height="18dp"
+            android:text="Показать пароль" />
         
         <Button
             android:layout_width="match_parent"

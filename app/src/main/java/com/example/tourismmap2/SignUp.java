@@ -2,8 +2,12 @@ package com.example.tourismmap2;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.method.HideReturnsTransformationMethod;
+import android.text.method.PasswordTransformationMethod;
 import android.view.View;
 import android.widget.Button;
+import android.widget.CheckBox;
+import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -24,9 +28,10 @@ public class SignUp extends AppCompatActivity {
 
 
     private FirebaseAuth auth;
-    private EditText signupEmail, signupPass;
+    private EditText signup_email, signup_pass;
     private Button signupButton;
     private TextView loginRedirectText;
+    private CheckBox checkBoxSign;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,22 +39,34 @@ public class SignUp extends AppCompatActivity {
         setContentView(R.layout.activity_sign_up);
 
         auth = FirebaseAuth.getInstance();
-        signupEmail = findViewById(R.id.signup_email);
-        signupPass = findViewById(R.id.signup_pass);
+        signup_email = findViewById(R.id.signup_email);
+        signup_pass = findViewById(R.id.signup_pass);
         signupButton = findViewById(R.id.signupButton);
         loginRedirectText = findViewById(R.id.loginRedirectText);
+        checkBoxSign = findViewById(R.id.checkBoxSign);
 
+        checkBoxSign.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                if(isChecked){
+                    signup_pass.setTransformationMethod(HideReturnsTransformationMethod.getInstance());
+
+                }else{
+                    signup_pass.setTransformationMethod(PasswordTransformationMethod.getInstance());
+                }
+            }
+        });
         signupButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String user = signupEmail.getText().toString().trim();
-                String pass = signupPass.getText().toString().trim();
+                String user = signup_email.getText().toString().trim();
+                String pass = signup_pass.getText().toString().trim();
 
                 if (user.isEmpty()){
-                    signupEmail.setError("Ошибка ввода Email");
+                    signup_email.setError("Ошибка ввода Email");
                 }
                 if(pass.isEmpty()){
-                    signupPass.setError("Ошибка ввода пароля");
+                    signup_pass.setError("Ошибка ввода пароля");
                 } else{
                     auth.createUserWithEmailAndPassword(user, pass).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                         @Override

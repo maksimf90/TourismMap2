@@ -5,7 +5,7 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ListRoute1"
+    tools:context=".ListHist"
     android:orientation="vertical"
     android:scrollbars="vertical"
     android:background="@drawable/bluewhite">
@@ -38,7 +38,7 @@
                 app:layout_constraintTop_toTopOf="parent">
 
                 <ImageView
-                    android:id="@+id/imageRoute1"
+                    android:id="@+id/imageRouteHist"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
@@ -68,7 +68,7 @@
                 app:layout_constraintTop_toBottomOf="@+id/linearLayout3">
 
                 <TextView
-                    android:id="@+id/textLocation"
+                    android:id="@+id/textLocationHist"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="Локация"
@@ -76,7 +76,7 @@
                     android:textSize="19sp" />
 
                 <TextView
-                    android:id="@+id/textLvl"
+                    android:id="@+id/textLvlHist"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="Сложность"
@@ -84,7 +84,7 @@
                     android:textSize="19sp" />
 
                 <TextView
-                    android:id="@+id/textDuration"
+                    android:id="@+id/textDurationHist"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="Длительность"
@@ -92,7 +92,7 @@
                     android:textSize="19sp" />
 
                 <TextView
-                    android:id="@+id/textLength"
+                    android:id="@+id/textLengthHist"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="Длина"
@@ -122,7 +122,7 @@
                 app:layout_constraintTop_toBottomOf="@+id/linearLayout7">
 
                 <TextView
-                    android:id="@+id/textDescription"
+                    android:id="@+id/textDescriptionHist"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="Описание"
@@ -151,7 +151,7 @@
                 app:layout_constraintTop_toBottomOf="@+id/linearLayout8">
 
                 <TextView
-                    android:id="@+id/textThread"
+                    android:id="@+id/textThreadHist"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
@@ -161,11 +161,4 @@
             </LinearLayout>
         </androidx.cardview.widget.CardView>
     </LinearLayout>
-
-    <Button
-        android:id="@+id/buttonAddHist"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Button" />
-
 </LinearLayout>

@@ -39,7 +39,6 @@ public class RouteAdapters extends RecyclerView.Adapter<RouteAdapters.viewHolder
 
             image = itemView.findViewById(R.id.routeimage);
             location = itemView.findViewById(R.id.routelocation);
-           // rank = itemView.findViewById(R.id.routerank);
             length = itemView.findViewById(R.id.routelength);
             duration = itemView.findViewById(R.id.routeduration);
             lvl = itemView.findViewById(R.id.routelvl);
