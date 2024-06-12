@@ -8,8 +8,7 @@
     tools:context=".ListRoute1"
     android:orientation="vertical"
     android:scrollbars="vertical"
-    android:background="@drawable/bluewhite">
-
+>
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -22,6 +21,7 @@
             android:layout_height="wrap_content"
             app:cardElevation="5dp"
             android:layout_margin="5dp"
+            android:background="@drawable/obvod"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
@@ -31,8 +31,6 @@
                 android:id="@+id/linearLayout3"
                 android:layout_width="400dp"
                 android:layout_height="278dp"
-                android:layout_marginStart="1dp"
-                android:layout_marginTop="1dp"
                 android:orientation="horizontal"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent">
@@ -61,8 +59,8 @@
                 android:id="@+id/linearLayout7"
                 android:layout_width="400dp"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="1dp"
-                android:layout_marginTop="1dp"
+                android:background="@drawable/obvod"
+                android:paddingLeft="5dp"
                 android:orientation="vertical"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/linearLayout3">
@@ -115,8 +113,8 @@
                 android:id="@+id/linearLayout8"
                 android:layout_width="400dp"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="1dp"
-                android:layout_marginTop="1dp"
+                android:background="@drawable/obvod"
+                android:paddingLeft="5dp"
                 android:orientation="horizontal"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/linearLayout7">
@@ -144,8 +142,8 @@
             <LinearLayout
                 android:layout_width="400dp"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="1dp"
-                android:layout_marginTop="1dp"
+                android:background="@drawable/obvod"
+                android:paddingLeft="5dp"
                 android:orientation="horizontal"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/linearLayout8">
@@ -166,6 +164,16 @@
         android:id="@+id/buttonAddHist"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Button" />
+        android:text="Отметить как пройденный"
+        android:padding="5dp"
 
+        android:backgroundTint="@color/black_back"/>
+
+    <Button
+        android:id="@+id/buttonDownloadRoute"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Download Route"
+        android:layout_below="@id/buttonAddHist"
+        android:layout_marginTop="16dp"/>
 </LinearLayout>

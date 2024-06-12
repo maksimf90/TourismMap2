@@ -6,19 +6,19 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".activity_list"
-    android:background="@drawable/bluewhite"
     >
 
 
     <androidx.appcompat.widget.SearchView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="30dp"
+        android:layout_marginTop="35dp"
         android:layout_marginStart="10dp"
         android:layout_marginEnd="10dp"
         android:id="@+id/searchroute"
         app:searchHintIcon="@null"
         app:queryHint="Поиск"
+        android:background="@drawable/obvod"
         app:iconifiedByDefault="false"
         android:focusable="false"
         >

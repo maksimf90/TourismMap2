@@ -57,6 +57,7 @@ public class LoginActivity extends AppCompatActivity {
                 }
             }
         });
+
         loginButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -100,6 +101,6 @@ public class LoginActivity extends AppCompatActivity {
                     public void onClick(View v) {
                         startActivity(new Intent(LoginActivity.this, SignUp.class));
                     }
-                });
+        });
     }
 }

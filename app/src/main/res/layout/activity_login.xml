@@ -13,7 +13,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="30dp"
-        app:cardCornerRadius="30dp"
+        app:cardCornerRadius="10dp"
         app:cardElevation="20dp">
         <LinearLayout
             android:layout_width="match_parent"
@@ -21,7 +21,7 @@
             android:orientation="vertical"
             android:layout_gravity="center_horizontal"
             android:padding="24dp"
-            android:background="@drawable/bluewhite">
+            android:background="@drawable/obvod">
 
             <TextView
                 android:layout_width="match_parent"
@@ -35,7 +35,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
                 android:id="@+id/login_email"
-                android:layout_marginTop="30dp"
+                android:layout_marginTop="25dp"
                 android:padding="8dp"
                 android:hint="Email"
                 android:textColor="@color/black"/>
@@ -44,7 +44,6 @@
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
                 android:id="@+id/login_pass"
-                android:layout_marginTop="5dp"
                 android:padding="8dp"
                 android:hint="Password"
                 android:inputType="textPassword"
@@ -61,6 +60,7 @@
                 android:layout_height="50dp"
                 android:id="@+id/loginButton"
                 android:text="Войти"
+                android:backgroundTint="@color/black_back"
                 android:textSize="15sp"
                 android:layout_marginTop="15dp"
                 app:cornerRadius="20dp"/>
@@ -69,7 +69,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/signupRedirectText"
-                android:text="Нет аккаунта? Зарегестрироваться"
+                android:text="Нет аккаунта? Зарегистрироваться"
                 android:layout_gravity="center"
                 android:padding="5dp"
                 android:layout_marginTop="5dp"

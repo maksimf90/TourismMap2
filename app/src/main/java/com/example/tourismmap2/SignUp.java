@@ -25,8 +25,6 @@ import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 
 public class SignUp extends AppCompatActivity {
-
-
     private FirebaseAuth auth;
     private EditText signup_email, signup_pass;
     private Button signupButton;
@@ -56,6 +54,7 @@ public class SignUp extends AppCompatActivity {
                 }
             }
         });
+
         signupButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -90,6 +89,5 @@ public class SignUp extends AppCompatActivity {
                 startActivity(new Intent(SignUp.this, LoginActivity.class));
             }
         });
-
     }
 }

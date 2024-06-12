@@ -19,7 +19,8 @@
             android:layout_height="wrap_content"
             android:orientation="horizontal"
             android:padding="10dp"
-            app:cardElevation="0dp">
+            app:cardElevation="0dp"
+            android:background="@drawable/obvod">
 
             <ImageView
                 android:id="@+id/hisImage"

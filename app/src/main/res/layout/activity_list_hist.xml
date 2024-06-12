@@ -8,8 +8,7 @@
     tools:context=".ListHist"
     android:orientation="vertical"
     android:scrollbars="vertical"
-    android:background="@drawable/bluewhite">
-
+>
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -25,7 +24,8 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:cardCornerRadius="10dp">
+            app:cardCornerRadius="10dp"
+            >
 
             <LinearLayout
                 android:id="@+id/linearLayout3"
@@ -55,14 +55,14 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:cardCornerRadius="10dp">
-
+            app:cardCornerRadius="10dp"
+>
             <LinearLayout
                 android:id="@+id/linearLayout7"
+                android:background="@drawable/obvod"
+                android:paddingLeft="5dp"
                 android:layout_width="400dp"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="1dp"
-                android:layout_marginTop="1dp"
                 android:orientation="vertical"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/linearLayout3">
@@ -115,9 +115,9 @@
                 android:id="@+id/linearLayout8"
                 android:layout_width="400dp"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="1dp"
-                android:layout_marginTop="1dp"
                 android:orientation="horizontal"
+                android:paddingLeft="5dp"
+                android:background="@drawable/obvod"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/linearLayout7">
 
@@ -144,8 +144,8 @@
             <LinearLayout
                 android:layout_width="400dp"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="1dp"
-                android:layout_marginTop="1dp"
+               android:background="@drawable/obvod"
+                android:paddingLeft="5dp"
                 android:orientation="horizontal"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/linearLayout8">
